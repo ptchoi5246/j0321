@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class HoewonDAO { //데이터베이스 관리
+public class HoewonDAO { //database에 왔다갔다 하는것
 	
 	private Connection conn = null;
 	
@@ -34,27 +34,29 @@ public class HoewonDAO { //데이터베이스 관리
 	}
 
 	//Hoewon 전체 조회
-	public HoewonVO getList() {
-		HoewonVO vo = new HoewonVO();
+	public void getList() {
 		try {
 			Statement stmt  = conn.createStatement();
 			String sql = "select * from hoewon";
 			ResultSet rs = stmt.executeQuery(sql);
+			// stmt로 관리하는 record를 부르는 명령 Query
+			// Driver에 접속하는 객체 Connection conn
+			//
 			
-			if(rs.next()) {
-				vo.setIdx(rs.getInt("idx"));
-				vo.setName(rs.getString("name"));
-				vo.setAge(rs.getInt("age"));
-				vo.setGender(rs.getNString("gender"));
-				vo.setAddress(rs.getString("address"));
-			}
-			
-			
-			
+			rs.next(); //자료를 보고 있는 rs를 내리기 위해서 .next();
+			System.out.println("번호 : " + rs.getInt("idx")); //테이블에 있는 필드
+			System.out.println("이름 : " + rs.getString("name"));
+			System.out.println("나이 : " + rs.getInt("age"));
+			System.out.println("성별 : " + rs.getString("gender"));
+			System.out.println("주소 : " + rs.getString("address"));
+			System.out.println();
 			
 		} catch (SQLException e) {
 			System.out.println("SQL 오류 : " + e.getMessage());
 		} //table 제어 준비 끝
-		return vo;
+		
 	}
+
+	
 }
+
