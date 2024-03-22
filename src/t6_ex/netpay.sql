@@ -15,7 +15,6 @@ insert into salary values ('사원', 2000000);
 
 select * from salary;
 
-drop table insa;
 
 -- 인사관리 테이블
 create table insa (
