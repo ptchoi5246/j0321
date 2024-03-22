@@ -1,4 +1,4 @@
-package t3_CRUD;
+package t4_CRUD;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -68,25 +68,18 @@ public class HoewonService {
 			System.out.println("---------------------------------");
 			System.out.print("수정할 항목? 1.성명  2.나이  3.성별  4.주소 ==> ");
 			int choice = sc.nextInt();
-			String sel = "";
-			switch(choice) {
-				case 1:
-					System.out.print("수정할 성명을 입력하세요? ");
-					sel = sc.next();
-					//dao.setUpdateName(sel);		// update hoewon set name = 'name' where idx = 'idx';
-					break;
-				case 2:
-					System.out.print("수정할 나이를 입력하세요? ");
-					sel = sc.next();
-					//dao.setUpdateAge(Integer.parseInt(sel));		// update hoewon set age = 'age' where idx = 'idx';
-					break;
-				case 3:
-					System.out.print("수정할 성별을 입력하세요? ");
-					sel = sc.next();
-					//dao.setUpdateGender(sel);		// update hoewon set gender = 'gender' where idx = 'idx';
-					break;
-			}
-			System.out.println("수정완료!");
+			System.out.println("수정할 내용 ==> ");
+			String content = sc.next();
+			
+			if(choice == 1) vo.setName(content);
+			else if(choice == 2) vo.setAge(Integer.parseInt(content));	
+			else if(choice == 3) vo.setGender(content);
+			else if(choice == 4) vo.setAddress(content);
+			
+			//dao.setUpdate(vo.getIdx(), choice, content);
+			int res = dao.setUpdate(vo); //수정을 안 했으면 - 수정 안 했습니다. 없는 자료 - 자료가 없습니다.
+			if(res != 0) System.out.println("자료가 수정되었습니다.");
+			else System.out.println("자료가 수정되지 않았습니다.");
 		}
 		else {
 			System.out.println("검색한 자료가 없습니다.");
