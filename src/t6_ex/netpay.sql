@@ -6,7 +6,7 @@ create table salary( /*성  적  표*/
 	bonbong 		int not null 										/*본봉*/
 );
 
-desc salary; 
+desc salary;
 
 insert into salary values ('부장', 5000000);
 insert into salary values ('과장', 4000000);
@@ -25,13 +25,13 @@ create table insa ( /*인사 관리 프로그램 1.전체조회 2.개별조회 3
 	jikkub 		char(8) not null,												/*부장, 과장, 대리, 사원 --salary 테이블에서 가져오기*/
 	age				int default 25,													/*나이, 기본값 25 -- 입력*/
 	ipsail 		datetime default now(),									/*입사일 -- 입력*/
-	gender		char(2) default '여자',									/*성별 -- 입력*/
+	gender		char(2) default '여자',										/*성별 -- 입력*/
 	address 	varchar (30), 													/*주소 -- 입력*/
 	unique key (sabun),																/*중복불가키 : 사번*/
 	foreign key (jikkub) references salary (jikkub) 	/*외래키*/
 );
 desc insa;
-drop table insa;
+--drop table insa;
 
 insert into insa values (default, '24032101', '인사과', '홍길동', '과장', 35, '2000-1-5', '남자', '서울');
 insert into insa values (default, '24032102', '영업과', '김말숙', '대리', 31, '2007-11-25', default, '청주');

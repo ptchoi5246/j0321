@@ -83,7 +83,7 @@ public class SungjukService2 {
 		else if(vo.getAvg() >= 80) vo.setGrade('B');
 		else if(vo.getAvg() >= 70) vo.setGrade('C');
 		else if(vo.getAvg() >= 60) vo.setGrade('D');
-		else vo.setGrade('D');
+		else vo.setGrade('F');
 		//return 하지 않아도 calculator (vo)에 저장이 잘 된다. // vo 새로 생성하지 않아서 같다.
 	}
 	

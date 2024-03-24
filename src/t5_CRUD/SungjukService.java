@@ -122,6 +122,7 @@ public class SungjukService {
 		if(res != 0) System.out.println("성적 내역이 수정되었습니다.");
 		else System.out.println("수정된 내용이 없습니다.");
 	}
+	
 	private void sungjukBasicSearch() {
 		System.out.print("\n조회할 성명을 입력하세요  ");
 		String name = sc.next();
